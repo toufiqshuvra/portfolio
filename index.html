@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Md. Toufiqul Karim - Professional CV</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.7;
+        color: #1a202c;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        min-height: 100vh;
+      }
+
+      .cv-container {
+        max-width: 220mm;
+        margin: 0 auto;
+        background: white;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .cv-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+        z-index: 10;
+      }
+
+      .header {
+        background: linear-gradient(
+          135deg,
+          #1e3c72 0%,
+          #2a5298 50%,
+          #667eea 100%
+        );
+        color: white;
+        padding: 50px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 70%
+        );
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(10deg);
+        }
+      }
+
+      .profile-section {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        flex: 1;
+        z-index: 5;
+        position: relative;
+      }
+
+      .profile-photo {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        border: 6px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        object-fit: cover;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+      }
+
+      .photo-placeholder {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        border: 6px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0.05)
+        );
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4em;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+      }
+
+      .profile-photo:hover,
+      .photo-placeholder:hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      }
+
+      .profile-info {
+        flex: 1;
+      }
+
+      .name {
+        font-family: "Poppins", sans-serif;
+        font-size: 3.2em;
+        font-weight: 800;
+        margin-bottom: 10px;
+        background: linear-gradient(45deg, #ffffff, #f0f8ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        line-height: 1.2;
+      }
+
+      .title {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.4em;
+        font-weight: 500;
+        margin-bottom: 25px;
+        opacity: 0.95;
+        letter-spacing: 0.5px;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 25px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.95em;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 12px 18px;
+        border-radius: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .contact-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .contact-item a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .contact-item a:hover {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+
+      .content {
+        padding: 50px;
+        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      }
+
+      .section {
+        margin-bottom: 45px;
+        position: relative;
+      }
+
+      .section:last-child {
+        margin-bottom: 0;
+      }
+
+      .section-title {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.8em;
+        font-weight: 700;
+        color: #1e3c72;
+        margin-bottom: 25px;
+        padding: 15px 0;
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .section-title::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        border-radius: 2px;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 60px;
+        height: 7px;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        border-radius: 4px;
+        box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+      }
+
+      .summary {
+        font-size: 1.1em;
+        line-height: 1.8;
+        text-align: justify;
+        color: #2d3748;
+        background: linear-gradient(135deg, #f7fafc, #edf2f7);
+        padding: 30px;
+        border-radius: 15px;
+        border-left: 5px solid #667eea;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .summary::before {
+        content: '"';
+        position: absolute;
+        top: -10px;
+        left: 15px;
+        font-size: 4em;
+        color: #667eea;
+        opacity: 0.2;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .experience-item,
+      .education-item,
+      .project-item {
+        margin-bottom: 30px;
+        padding: 30px;
+        background: linear-gradient(135deg, #ffffff, #f8fafc);
+        border-radius: 20px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .experience-item:hover,
+      .education-item:hover,
+      .project-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .experience-item::before,
+      .education-item::before,
+      .project-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background: linear-gradient(180deg, #667eea, #764ba2);
+      }
+
+      .experience-item:last-child,
+      .education-item:last-child,
+      .project-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .job-title {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.4em;
+        font-weight: 700;
+        color: #1e3c72;
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+
+      .company {
+        font-weight: 600;
+        color: #667eea;
+        margin-bottom: 8px;
+        font-size: 1.1em;
+      }
+
+      .duration {
+        font-style: italic;
+        color: #718096;
+        margin-bottom: 20px;
+        background: linear-gradient(135deg, #edf2f7, #e2e8f0);
+        padding: 8px 15px;
+        border-radius: 20px;
+        display: inline-block;
+        font-weight: 500;
+      }
+
+      .responsibilities {
+        list-style: none;
+      }
+
+      .responsibilities li {
+        margin-bottom: 12px;
+        padding-left: 30px;
+        position: relative;
+        color: #2d3748;
+        line-height: 1.7;
+      }
+
+      .responsibilities li::before {
+        content: "▶";
+        position: absolute;
+        left: 0;
+        color: #667eea;
+        font-size: 0.9em;
+        top: 2px;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+
+      .skill-category {
+        background: linear-gradient(135deg, #ffffff, #f7fafc);
+        padding: 30px;
+        border-radius: 20px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .skill-category:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .skill-category::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+      }
+
+      .skill-category h4 {
+        font-family: "Poppins", sans-serif;
+        color: #1e3c72;
+        font-weight: 700;
+        margin-bottom: 20px;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .skill-tag {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 25px;
+        font-size: 0.9em;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .skill-tag:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+      }
+
+      .awards-list {
+        list-style: none;
+      }
+
+      .awards-list li {
+        background: linear-gradient(135deg, #f0fff4, #e6fffa);
+        padding: 25px 30px;
+        margin-bottom: 20px;
+        border-radius: 15px;
+        border-left: 5px solid #38a169;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .awards-list li:hover {
+        transform: translateX(10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .awards-list li::before {
+        content: "🏆";
+        position: absolute;
+        left: -8px;
+        top: 20px;
+        font-size: 1.5em;
+        background: white;
+        padding: 5px;
+        border-radius: 50%;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .award-title {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        color: #38a169;
+        font-size: 1.1em;
+        margin-bottom: 5px;
+      }
+
+      .languages-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .language-item {
+        background: linear-gradient(135deg, #fff5f5, #fed7d7);
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+        border-left: 5px solid #e53e3e;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .language-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .language-name {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        color: #1a202c;
+        font-size: 1.2em;
+        margin-bottom: 5px;
+      }
+
+      .language-level {
+        color: #e53e3e;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .certification-item {
+        background: linear-gradient(135deg, #ffffff, #f7fafc);
+        padding: 30px;
+        margin-bottom: 25px;
+        border-radius: 20px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .certification-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .certification-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background: linear-gradient(180deg, #f6ad55, #ed8936);
+      }
+
+      .cert-title {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.3em;
+        font-weight: 700;
+        color: #1e3c72;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+
+      .cert-issuer {
+        font-weight: 600;
+        color: #667eea;
+        margin-bottom: 15px;
+        font-size: 1.05em;
+      }
+
+      .cert-link {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 600;
+        background: linear-gradient(135deg, #edf2f7, #e2e8f0);
+        padding: 10px 20px;
+        border-radius: 25px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .cert-link:hover {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+      }
+
+      .download-btn {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 700;
+        font-family: "Poppins", sans-serif;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        transition: all 0.3s ease;
+        z-index: 1000;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .download-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+      }
+
+      @media print {
+        body {
+          background: white;
+          padding: 0;
+        }
+
+        .cv-container {
+          box-shadow: none;
+          border-radius: 0;
+          max-width: none;
+        }
+
+        .download-btn {
+          display: none;
+        }
+
+        .header::before {
+          animation: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header {
+          flex-direction: column;
+          gap: 30px;
+          padding: 40px 20px;
+        }
+
+        .profile-section {
+          flex-direction: column;
+          gap: 25px;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .content {
+          padding: 30px 20px;
+        }
+
+        .profile-photo,
+        .photo-placeholder {
+          width: 150px;
+          height: 150px;
+        }
+
+        .name {
+          font-size: 2.5em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="download-btn" onclick="downloadAsWord()">
+      📄 Download CV
+    </button>
+
+    <div class="cv-container">
+      <div class="header">
+        <div class="profile-section">
+          <!-- Add your professional photo here -->
+          <div class="photo-placeholder">
+            <img src="https://i.ibb.co.com/FLYXrk7b/Md-Toufiqul-Karim-Software-Engineer-O.png" alt="Md. Toufiqul Karim" class="profile-photo">
+          </div>
+          <!-- If you have a photo, replace the above div with: -->
+          <!-- <img src="your-photo-url.jpg" alt="Md. Toufiqul Karim" class="profile-photo"> -->
+
+          <div class="profile-info">
+            <h1 class="name">Md. Toufiqul Karim</h1>
+            <p class="title">Junior Software Engineer | Frontend Developer</p>
+
+            <div class="contact-grid">
+              <div class="contact-item">
+                📧
+                <a href="mailto:shuvrasarker54@gmail.com"
+                  >shuvrasarker54@gmail.com</a
+                >
+              </div>
+              <div class="contact-item">📱 01302612486</div>
+              <div class="contact-item">
+                💼
+                <a
+                  href="http://www.linkedin.com/in/md-toufiqul-karim-ba1952179"
+                  target="_blank"
+                  >LinkedIn</a
+                >
+              </div>
+              <div class="contact-item">
+                🔗
+                <a href="https://github.com/toufiqshuvra" target="_blank"
+                  >GitHub</a
+                >
+              </div>
+              <div class="contact-item">
+                🏆
+                <a
+                  href="https://www.credly.com/users/md-toufiqul-karim"
+                  target="_blank"
+                  >Credly</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="section">
+          <h2 class="section-title">Professional Summary</h2>
+          <p class="summary">
+            A highly skilled and motivated Junior Software Engineer specializing
+            in frontend design & development, cloud technologies, and AI solutions. With
+            proven expertise in delivering scalable applications using
+            cutting-edge technologies like Svelte, JavaScript, and Tailwind CSS,
+            I have successfully contributed to multiple high-impact projects
+            from conception to deployment. My technical proficiency spans across
+            modern frontend frameworks, Oracle Cloud Infrastructure, and AWS
+            technologies, complemented by advanced certifications in Generative
+            AI and HCM process optimization. I excel in creating responsive,
+            user-centric applications while maintaining focus on performance
+            optimization, SEO implementation, and seamless user experiences.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Experience</h2>
+
+          <div class="experience-item">
+            <h3 class="job-title">Frontend Engineer</h3>
+            <p class="company">InNeed Intelligent Cloud</p>
+            <p class="duration">March 2023 – Present</p>
+            <ul class="responsibilities">
+              <li>
+                Developed responsive and scalable applications using
+                <strong>Svelte (v5)</strong>, <strong>Tailwind CSS</strong>, and
+                <strong>JavaScript</strong>
+              </li>
+              <li>
+                Led custom development projects including
+                <strong>Esther Group</strong>, <strong>JU Reunion</strong>,
+                <strong>Moonbase Organics</strong>, and
+                <strong>Million AI Minds</strong> from design to deployment
+              </li>
+              <li>
+                Revamped and maintained multiple
+                <strong>WordPress</strong> websites, including
+                <strong>Old IAJ Online</strong>,
+                <strong>Esther Finance</strong>, and
+                <strong>Mountain of Fire and Miracles Ministries</strong>
+              </li>
+              <li>
+                Integrated <strong>Google Analytics</strong> and
+                <strong>Search Console</strong> into over 20 projects for
+                performance tracking and SEO optimization
+              </li>
+              <li>
+                Managed and updated content for platforms like
+                <strong>Bucket Platforms</strong>,
+                <strong>Olde Jamaica Tours</strong>, and
+                <strong>Booking Insurance Association of Jamaica</strong>
+              </li>
+              <li>
+                Provided ongoing support and enhancements for client projects,
+                ensuring high-quality solutions and customer satisfaction
+              </li>
+              <li>
+                Implemented <strong>GoHighLevel</strong> for email campaigns,
+                form management, and workflow automation
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Education</h2>
+
+          <div class="education-item">
+            <h3 class="job-title">BSc in Computer Science & Engineering</h3>
+            <p class="company">Sonargaon University</p>
+            <p class="duration">Graduated: 2023</p>
+            <ul class="responsibilities">
+              <li>
+                Relevant coursework: Web Development, Database Systems, Software
+                Engineering
+              </li>
+            </ul>
+          </div>
+
+          <div class="education-item">
+            <h3 class="job-title">
+              Diploma in Engineering in Computer Science & Technology
+            </h3>
+            <p class="company">
+              Ahshanullah Institute of Technical & Vocational Education &
+              Training (AITVET)
+            </p>
+            <p class="duration">Graduated: 2020</p>
+            <ul class="responsibilities">
+              <li>
+                Relevant coursework: Networking, Programming Languages, Computer
+                Architecture
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Key Projects</h2>
+
+          <div class="project-item">
+            <h3 class="job-title">Esther Group Website</h3>
+            <p class="summary">
+              Developed full frontend with
+              <strong>Svelte + Tailwind CSS</strong>, backend with
+              <strong>Directus</strong> for a modern, scalable CMS-driven
+              platform.
+            </p>
+          </div>
+
+          <div class="project-item">
+            <h3 class="job-title">
+              JU Reunion (Jahangirnagar University Global Reunion)
+            </h3>
+            <p class="summary">
+              Designed and developed a complete frontend and backend system for
+              a global alumni reunion website.
+            </p>
+          </div>
+
+          <div class="project-item">
+            <h3 class="job-title">Million AI Minds</h3>
+            <p class="summary">
+              Created the entire frontend with
+              <strong>Svelte + Tailwind CSS</strong> for an engaging, fast user
+              experience.
+            </p>
+          </div>
+
+          <div class="project-item">
+            <h3 class="job-title">WordPress Projects Portfolio</h3>
+            <p class="summary">
+              Maintained and customized several websites including
+              <strong>IAJ Online</strong>, <strong>Esther Ventures</strong>, and
+              <strong>Goat & Sheep Farmers Association</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Technical Skills</h2>
+
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h4>Frontend Development</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Svelte</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">Tailwind CSS</span>
+                <span class="skill-tag">Bootstrap</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h4>Cloud & AI Technologies</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Oracle Cloud</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Generative AI</span>
+                <span class="skill-tag">AI Foundations</span>
+                <span class="skill-tag">Machine Learning</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h4>CMS & Platforms</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">WordPress</span>
+                <span class="skill-tag">Webiny CMS</span>
+                <span class="skill-tag">GoHighLevel</span>
+                <span class="skill-tag">Directus</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h4>CRM Management</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Technical Proficiency</span>
+                <span class="skill-tag">Data Management & Analysis</span>
+                <span class="skill-tag">Sales & Pipeline Management</span>
+                <span class="skill-tag">Process Automation</span>
+                <span class="skill-tag">Compliance & Security</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h4>Backend & Database</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">Laravel</span>
+                <span class="skill-tag">MySQL</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h4>Analytics & SEO</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Google Analytics</span>
+                <span class="skill-tag">Search Console</span>
+                <span class="skill-tag">SEO Optimization</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Certifications</h2>
+          <div class="certification-item">
+            <h3 class="cert-title">AWS Partner: Technical Accredited</h3>
+            <p class="cert-issuer">
+              Amazon Web Services Training and Certification
+            </p>
+            <a
+              href="https://www.credly.com/badges/74b86995-51d8-4bce-b5d0-c61f430e2078/linked_in?t=squdgx"
+              target="_blank"
+              class="cert-link"
+            >
+              🔗 Verify on Credly
+            </a>
+          </div>
+
+          <div class="certification-item">
+            <h3 class="cert-title">
+              Oracle Fusion Cloud Applications HCM Process Essentials Certified
+              - Rel 1
+            </h3>
+            <p class="cert-issuer">Oracle University</p>
+            <a
+              href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=FBF63F892F273C54ECB0521DB8D6F18D5344171BAB14C0E69FCC317905A7B686"
+              target="_blank"
+              class="cert-link"
+            >
+              🔗 Verify on Oracle CertView
+            </a>
+          </div>
+
+          <div class="certification-item">
+            <h3 class="cert-title">
+              Oracle Cloud Infrastructure 2025 Certified AI Foundations
+              Associate
+            </h3>
+            <p class="cert-issuer">Oracle University</p>
+            <a
+              href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=945B6B67D24966384F69EE6F4AB4F34C7E9ED8D2BE297500F7EDDB9F9CB0D21C"
+              target="_blank"
+              class="cert-link"
+            >
+              🔗 Verify on Oracle CertView
+            </a>
+          </div>
+
+          <div class="certification-item">
+            <h3 class="cert-title">
+              Oracle Cloud Infrastructure 2025 Certified Generative AI
+              Professional
+            </h3>
+            <p class="cert-issuer">Oracle University</p>
+            <a
+              href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=17DBB63FA7B1B2868554689B3CEF69737FE6B7FF6ECA743BFEB5EF077F23CC42"
+              target="_blank"
+              class="cert-link"
+            >
+              🔗 Verify on Oracle CertView
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+    <script>
+      function downloadAsWord() {
+        const header = `
+          <html xmlns:o='urn:schemas-microsoft-com:office:office' 
+                xmlns:w='urn:schemas-microsoft-com:office:word' 
+                xmlns='http://www.w3.org/TR/REC-html40'>
+          <head><meta charset='utf-8'><title>Md. Toufiqul Karim - Professional CV</title></head><body>`;
+        const footer = "</body></html>";
+        const sourceHTML =
+          header + document.querySelector(".cv-container").outerHTML + footer;
+
+        const source = "data:application/vnd.ms-word;charset=utf-8," + encodeURIComponent(sourceHTML);
+        const fileDownload = document.createElement("a");
+        document.body.appendChild(fileDownload);
+        fileDownload.href = source;
+        fileDownload.download = "Md_Toufiqul_Karim_Professional_CV.doc";
+        fileDownload.click();
+        document.body.removeChild(fileDownload);
+      }
+    </script>
