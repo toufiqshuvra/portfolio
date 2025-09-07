@@ -227,7 +227,6 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         position: relative;
         overflow: hidden;
-        
       }
       .summary::before {
         content: '"';
@@ -613,7 +612,6 @@
         .cert-issuer {
           font-size: 0.95em;
         }
-        
       }
       @media (max-width: 480px) {
         .header {
@@ -664,7 +662,11 @@
         <div class="profile-section">
           <!-- Add your professional photo here -->
           <div class="photo-placeholder">
-            <img src="https://i.ibb.co.com/FLYXrk7b/Md-Toufiqul-Karim-Software-Engineer-O.png" alt="Md. Toufiqul Karim" class="profile-photo">
+            <img
+              src="https://i.ibb.co.com/FLYXrk7b/Md-Toufiqul-Karim-Software-Engineer-O.png"
+              alt="Md. Toufiqul Karim"
+              class="profile-photo"
+            />
           </div>
           <!-- If you have a photo, replace the above div with: -->
           <!-- <img src="your-photo-url.jpg" alt="Md. Toufiqul Karim" class="profile-photo"> -->
@@ -709,17 +711,12 @@
         <div class="section">
           <h2 class="section-title">Professional Summary</h2>
           <p class="summary">
-            A highly skilled and motivated Junior Software Engineer specializing
-            in frontend design & development, cloud technologies, and AI solutions. With
-            proven expertise in delivering scalable applications using
-            cutting-edge technologies like Svelte, JavaScript, and Tailwind CSS,
-            I have successfully contributed to multiple high-impact projects
-            from conception to deployment. My technical proficiency spans across
-            modern frontend frameworks, Oracle Cloud Infrastructure, and AWS
-            technologies, complemented by advanced certifications in Generative
-            AI and HCM process optimization. I excel in creating responsive,
-            user-centric applications while maintaining focus on performance
-            optimization, SEO implementation, and seamless user experiences.
+            Software Engineer focused on frontend development and WordPress
+            solutions. Skilled in designing and implementing UI/UX features,
+            responsive layouts, and interactive components using JavaScript,
+            Svelte, Tailwind CSS, and Bootstrap. Experienced in WordPress site
+            customization, database management, cPanel, and admin panel
+            operations, ensuring smooth and efficient website functionality.
           </p>
         </div>
         <div class="section">
@@ -959,22 +956,24 @@
     </div>
   </body>
 </html>
-    <script>
-      function downloadAsWord() {
-        const header = `
+<script>
+  function downloadAsWord() {
+    const header = `
           <html xmlns:o='urn:schemas-microsoft-com:office:office' 
                 xmlns:w='urn:schemas-microsoft-com:office:word' 
                 xmlns='http://www.w3.org/TR/REC-html40'>
           <head><meta charset='utf-8'><title>Md. Toufiqul Karim - Professional CV</title></head><body>`;
-        const footer = "</body></html>";
-        const sourceHTML =
-          header + document.querySelector(".cv-container").outerHTML + footer;
-        const source = "data:application/vnd.ms-word;charset=utf-8," + encodeURIComponent(sourceHTML);
-        const fileDownload = document.createElement("a");
-        document.body.appendChild(fileDownload);
-        fileDownload.href = source;
-        fileDownload.download = "Md_Toufiqul_Karim_Professional_CV.doc";
-        fileDownload.click();
-        document.body.removeChild(fileDownload);
-      }
-    </script>
+    const footer = "</body></html>";
+    const sourceHTML =
+      header + document.querySelector(".cv-container").outerHTML + footer;
+    const source =
+      "data:application/vnd.ms-word;charset=utf-8," +
+      encodeURIComponent(sourceHTML);
+    const fileDownload = document.createElement("a");
+    document.body.appendChild(fileDownload);
+    fileDownload.href = source;
+    fileDownload.download = "Md_Toufiqul_Karim_Professional_CV.doc";
+    fileDownload.click();
+    document.body.removeChild(fileDownload);
+  }
+</script>
