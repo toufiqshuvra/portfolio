@@ -517,6 +517,34 @@
         transform: translateY(-3px);
         box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
       }
+      .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        color: white;
+        font-size: 24px;
+        flex-direction: column;
+      }
+      .loading-spinner {
+        border: 8px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top: 8px solid #667eea;
+        width: 60px;
+        height: 60px;
+        animation: spin 1s linear infinite;
+        margin-bottom: 20px;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
       @media print {
         body {
           background: white;
@@ -565,6 +593,7 @@
         }
         .name {
           font-size: 2.5em;
+          background-color: none;
         }
         .section-title {
           font-size: 1.5em;
@@ -654,7 +683,7 @@
     </style>
   </head>
   <body>
-    <button class="download-btn" onclick="downloadAsWord()">
+    <button class="download-btn" onclick="downloadAsPDF()">
       📄 Download CV
     </button>
     <div class="cv-container">
@@ -954,26 +983,48 @@
         </div>
       </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+      function downloadAsPDF() {
+        // Create loading overlay
+        const loadingOverlay = document.createElement('div');
+        loadingOverlay.className = 'loading-overlay';
+        loadingOverlay.innerHTML = `
+          <div class="loading-spinner"></div>
+          <p>Generating PDF, please wait...</p>
+        `;
+        document.body.appendChild(loadingOverlay);
+
+        // Get the CV container element
+        const element = document.querySelector(".cv-container");
+        
+        // PDF generation options
+        const opt = {
+          margin: 10,
+          filename: 'Md_Toufiqul_Karim_Professional_CV.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { 
+            scale: 2,
+            useCORS: true,
+            logging: false,
+            backgroundColor: '#ffffff'
+          },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+        
+        // Generate and save PDF
+        html2pdf().set(opt).from(element).save()
+          .then(() => {
+            // Remove loading overlay when done
+            document.body.removeChild(loadingOverlay);
+          })
+          .catch(error => {
+            console.error('PDF generation failed:', error);
+            alert('Error generating PDF. Please try again.');
+            document.body.removeChild(loadingOverlay);
+          });
+      }
+    </script>
   </body>
 </html>
-<script>
-  function downloadAsWord() {
-    const header = `
-          <html xmlns:o='urn:schemas-microsoft-com:office:office' 
-                xmlns:w='urn:schemas-microsoft-com:office:word' 
-                xmlns='http://www.w3.org/TR/REC-html40'>
-          <head><meta charset='utf-8'><title>Md. Toufiqul Karim - Professional CV</title></head><body>`;
-    const footer = "</body></html>";
-    const sourceHTML =
-      header + document.querySelector(".cv-container").outerHTML + footer;
-    const source =
-      "data:application/vnd.ms-word;charset=utf-8," +
-      encodeURIComponent(sourceHTML);
-    const fileDownload = document.createElement("a");
-    document.body.appendChild(fileDownload);
-    fileDownload.href = source;
-    fileDownload.download = "Md_Toufiqul_Karim_Professional_CV.doc";
-    fileDownload.click();
-    document.body.removeChild(fileDownload);
-  }
-</script>
