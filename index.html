@@ -179,6 +179,8 @@
       .section {
         margin-bottom: 45px;
         position: relative;
+        page-break-inside: avoid;
+        page-break-after: avoid;
       }
       .section:last-child {
         margin-bottom: 0;
@@ -193,6 +195,8 @@
         position: relative;
         text-transform: uppercase;
         letter-spacing: 1px;
+        page-break-after: avoid;
+        page-break-inside: avoid;
       }
       .section-title::before {
         content: "";
@@ -227,6 +231,8 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         position: relative;
         overflow: hidden;
+        page-break-inside: avoid;
+        page-break-after: avoid;
       }
       .summary::before {
         content: '"';
@@ -250,6 +256,8 @@
         position: relative;
         overflow: hidden;
         transition: all 0.3s ease;
+        page-break-inside: avoid;
+        page-break-after: avoid;
       }
       .experience-item:hover,
       .education-item:hover,
@@ -280,12 +288,14 @@
         color: #1e3c72;
         margin-bottom: 8px;
         line-height: 1.3;
+        page-break-after: avoid;
       }
       .company {
         font-weight: 600;
         color: #667eea;
         margin-bottom: 8px;
         font-size: 1.1em;
+        page-break-after: avoid;
       }
       .duration {
         font-style: italic;
@@ -296,9 +306,11 @@
         border-radius: 20px;
         display: inline-block;
         font-weight: 500;
+        page-break-after: avoid;
       }
       .responsibilities {
         list-style: none;
+        page-break-inside: avoid;
       }
       .responsibilities li {
         margin-bottom: 12px;
@@ -306,6 +318,7 @@
         position: relative;
         color: #2d3748;
         line-height: 1.7;
+        page-break-inside: avoid;
       }
       .responsibilities li::before {
         content: "▶";
@@ -319,6 +332,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 25px;
+        page-break-inside: avoid;
       }
       .skill-category {
         background: linear-gradient(135deg, #ffffff, #f7fafc);
@@ -329,6 +343,8 @@
         position: relative;
         overflow: hidden;
         transition: all 0.3s ease;
+        page-break-inside: avoid;
+        page-break-after: avoid;
       }
       .skill-category:hover {
         transform: translateY(-5px);
@@ -351,11 +367,13 @@
         font-size: 1.2em;
         text-transform: uppercase;
         letter-spacing: 0.5px;
+        page-break-after: avoid;
       }
       .skill-tags {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
+        page-break-inside: avoid;
       }
       .skill-tag {
         background: linear-gradient(135deg, #667eea, #764ba2);
@@ -368,6 +386,7 @@
         letter-spacing: 0.5px;
         box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         transition: all 0.3s ease;
+        page-break-inside: avoid;
       }
       .skill-tag:hover {
         transform: translateY(-2px);
@@ -375,6 +394,7 @@
       }
       .awards-list {
         list-style: none;
+        page-break-inside: avoid;
       }
       .awards-list li {
         background: linear-gradient(135deg, #f0fff4, #e6fffa);
@@ -385,6 +405,8 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         position: relative;
         transition: all 0.3s ease;
+        page-break-inside: avoid;
+        page-break-after: avoid;
       }
       .awards-list li:hover {
         transform: translateX(10px);
@@ -407,11 +429,13 @@
         color: #38a169;
         font-size: 1.1em;
         margin-bottom: 5px;
+        page-break-after: avoid;
       }
       .languages-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 20px;
+        page-break-inside: avoid;
       }
       .language-item {
         background: linear-gradient(135deg, #fff5f5, #fed7d7);
@@ -421,6 +445,8 @@
         border-left: 5px solid #e53e3e;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         transition: all 0.3s ease;
+        page-break-inside: avoid;
+        page-break-after: avoid;
       }
       .language-item:hover {
         transform: translateY(-5px);
@@ -432,6 +458,7 @@
         color: #1a202c;
         font-size: 1.2em;
         margin-bottom: 5px;
+        page-break-after: avoid;
       }
       .language-level {
         color: #e53e3e;
@@ -449,6 +476,8 @@
         position: relative;
         overflow: hidden;
         transition: all 0.3s ease;
+        page-break-inside: avoid;
+        page-break-after: avoid;
       }
       .certification-item:hover {
         transform: translateY(-5px);
@@ -470,12 +499,14 @@
         color: #1e3c72;
         margin-bottom: 10px;
         line-height: 1.4;
+        page-break-after: avoid;
       }
       .cert-issuer {
         font-weight: 600;
         color: #667eea;
         margin-bottom: 15px;
         font-size: 1.05em;
+        page-break-after: avoid;
       }
       .cert-link {
         color: #667eea;
@@ -488,6 +519,7 @@
         align-items: center;
         gap: 8px;
         transition: all 0.3s ease;
+        page-break-inside: avoid;
       }
       .cert-link:hover {
         background: linear-gradient(135deg, #667eea, #764ba2);
@@ -659,9 +691,10 @@
           background: #2a5298 !important;
         }
         
-        /* Prevent unwanted page breaks */
+        /* Prevent unwanted page breaks - more aggressive approach */
         .section {
-          page-break-inside: avoid;
+          page-break-inside: avoid !important;
+          page-break-after: avoid !important;
           margin-bottom: 30px;
         }
         
@@ -671,7 +704,30 @@
         .certification-item,
         .skill-category,
         .summary {
-          page-break-inside: avoid;
+          page-break-inside: avoid !important;
+          page-break-after: avoid !important;
+        }
+        
+        .section-title,
+        .job-title,
+        .company,
+        .duration,
+        .cert-title,
+        .cert-issuer,
+        .skill-category h4,
+        .language-name {
+          page-break-after: avoid !important;
+          page-break-inside: avoid !important;
+        }
+        
+        .responsibilities,
+        .skill-tags {
+          page-break-inside: avoid !important;
+        }
+        
+        .responsibilities li,
+        .skill-tag {
+          page-break-inside: avoid !important;
         }
         
         /* Ensure content doesn't overflow pages */
@@ -687,6 +743,11 @@
         * {
           transition: none !important;
           animation: none !important;
+        }
+        
+        /* Force page breaks before each section */
+        .section:not(:first-child) {
+          page-break-before: always;
         }
       }
       
@@ -1168,7 +1229,7 @@
         document.querySelector('.name').style.cssText = 'color: white !important; background: none !important; -webkit-text-fill-color: white !important;';
         document.querySelector('.header').style.cssText = 'background: #2a5298 !important;';
         
-        // PDF generation options with pagebreak settings
+        // PDF generation options with enhanced pagebreak settings
         const opt = {
           margin: 10,
           filename: fileName + '.pdf',
@@ -1177,10 +1238,47 @@
             scale: 2,
             useCORS: true,
             logging: false,
-            backgroundColor: '#ffffff'
+            backgroundColor: '#ffffff',
+            // Custom function to handle page breaks
+            onclone: function(clonedDoc) {
+              // Add page break before each section (except the first one)
+              const sections = clonedDoc.querySelectorAll('.section');
+              sections.forEach((section, index) => {
+                if (index > 0) {
+                  section.style.pageBreakBefore = 'always';
+                }
+                // Ensure no breaks inside sections
+                section.style.pageBreakInside = 'avoid';
+                
+                // Apply page break controls to all child elements
+                const allElements = section.querySelectorAll('*');
+                allElements.forEach(el => {
+                  el.style.pageBreakInside = 'avoid';
+                });
+              });
+              
+              // Specifically fix the header background
+              const header = clonedDoc.querySelector('.header');
+              if (header) {
+                header.style.background = '#2a5298';
+              }
+              
+              // Specifically fix the name text color
+              const name = clonedDoc.querySelector('.name');
+              if (name) {
+                name.style.color = 'white';
+                name.style.webkitTextFillColor = 'white';
+                name.style.background = 'none';
+              }
+            }
           },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-          pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+          // Enhanced pagebreak configuration
+          pagebreak: { 
+            mode: ['avoid-all', 'css', 'legacy'],
+            before: '.section',
+            after: '.section'
+          }
         };
         
         // Generate and save PDF
