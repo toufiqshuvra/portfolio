@@ -179,7 +179,6 @@
       .section {
         margin-bottom: 45px;
         position: relative;
-        page-break-inside: avoid;
       }
       .section:last-child {
         margin-bottom: 0;
@@ -228,7 +227,6 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         position: relative;
         overflow: hidden;
-        page-break-inside: avoid;
       }
       .summary::before {
         content: '"';
@@ -252,7 +250,6 @@
         position: relative;
         overflow: hidden;
         transition: all 0.3s ease;
-        page-break-inside: avoid;
       }
       .experience-item:hover,
       .education-item:hover,
@@ -332,7 +329,6 @@
         position: relative;
         overflow: hidden;
         transition: all 0.3s ease;
-        page-break-inside: avoid;
       }
       .skill-category:hover {
         transform: translateY(-5px);
@@ -389,7 +385,6 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         position: relative;
         transition: all 0.3s ease;
-        page-break-inside: avoid;
       }
       .awards-list li:hover {
         transform: translateX(10px);
@@ -426,7 +421,6 @@
         border-left: 5px solid #e53e3e;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         transition: all 0.3s ease;
-        page-break-inside: avoid;
       }
       .language-item:hover {
         transform: translateY(-5px);
@@ -455,7 +449,6 @@
         position: relative;
         overflow: hidden;
         transition: all 0.3s ease;
-        page-break-inside: avoid;
       }
       .certification-item:hover {
         transform: translateY(-5px);
@@ -635,8 +628,6 @@
           background: white;
           padding: 0;
           margin: 0;
-          -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
         }
         
         .cv-container {
@@ -644,33 +635,28 @@
           border-radius: 0;
           max-width: none;
           margin: 0;
-          page-break-after: avoid;
-          -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
         }
         
         .download-btn {
           display: none;
         }
         
-        .header {
-          background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%) !important;
-          -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
-        }
-        
         .header::before {
           animation: none;
         }
         
-        /* Fix for the white name issue in PDF */
+        /* Fix for the white name issue in PDF - use a completely different approach */
         .name {
-          -webkit-text-fill-color: white !important;
+          position: relative;
           color: white !important;
           background: none !important;
+          -webkit-text-fill-color: white !important;
           text-shadow: none !important;
-          -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
+        }
+        
+        /* Create a solid blue background for the header */
+        .header {
+          background: #2a5298 !important;
         }
         
         /* Prevent unwanted page breaks */
@@ -701,12 +687,6 @@
         * {
           transition: none !important;
           animation: none !important;
-        }
-        
-        /* Force background colors for all elements */
-        * {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
         }
       }
       
@@ -1180,6 +1160,14 @@
         // Get the CV container element
         const element = document.querySelector(".cv-container");
         
+        // Temporarily modify styles for PDF generation
+        const originalNameStyle = document.querySelector('.name').style.cssText;
+        const originalHeaderStyle = document.querySelector('.header').style.cssText;
+        
+        // Apply fixes for PDF generation
+        document.querySelector('.name').style.cssText = 'color: white !important; background: none !important; -webkit-text-fill-color: white !important;';
+        document.querySelector('.header').style.cssText = 'background: #2a5298 !important;';
+        
         // PDF generation options with pagebreak settings
         const opt = {
           margin: 10,
@@ -1189,38 +1177,7 @@
             scale: 2,
             useCORS: true,
             logging: false,
-            backgroundColor: '#ffffff',
-            // Ensure background colors are preserved
-            onclone: function(clonedDoc) {
-              const clonedElement = clonedDoc.querySelector('.cv-container');
-              // Force background colors for all elements
-              const allElements = clonedElement.querySelectorAll('*');
-              allElements.forEach(el => {
-                const computedStyle = window.getComputedStyle(el);
-                if (computedStyle.backgroundColor !== 'rgba(0, 0, 0, 0)' && 
-                    computedStyle.backgroundColor !== 'transparent') {
-                  el.style.setProperty('background-color', computedStyle.backgroundColor, 'important');
-                }
-                if (computedStyle.color !== 'rgba(0, 0, 0, 0)' && 
-                    computedStyle.color !== 'transparent') {
-                  el.style.setProperty('color', computedStyle.color, 'important');
-                }
-              });
-              
-              // Specifically fix the header background
-              const header = clonedDoc.querySelector('.header');
-              if (header) {
-                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%)';
-              }
-              
-              // Specifically fix the name text color
-              const name = clonedDoc.querySelector('.name');
-              if (name) {
-                name.style.color = 'white';
-                name.style.webkitTextFillColor = 'white';
-                name.style.background = 'none';
-              }
-            }
+            backgroundColor: '#ffffff'
           },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
           pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
@@ -1229,10 +1186,18 @@
         // Generate and save PDF
         html2pdf().set(opt).from(element).save()
           .then(() => {
+            // Restore original styles
+            document.querySelector('.name').style.cssText = originalNameStyle;
+            document.querySelector('.header').style.cssText = originalHeaderStyle;
+            
             // Remove loading overlay when done
             document.body.removeChild(loadingOverlay);
           })
           .catch(error => {
+            // Restore original styles in case of error
+            document.querySelector('.name').style.cssText = originalNameStyle;
+            document.querySelector('.header').style.cssText = originalHeaderStyle;
+            
             console.error('PDF generation failed:', error);
             alert('Error generating PDF. Please try again.');
             document.body.removeChild(loadingOverlay);
