@@ -179,6 +179,7 @@
       .section {
         margin-bottom: 45px;
         position: relative;
+        page-break-inside: avoid;
       }
       .section:last-child {
         margin-bottom: 0;
@@ -227,6 +228,7 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         position: relative;
         overflow: hidden;
+        page-break-inside: avoid;
       }
       .summary::before {
         content: '"';
@@ -250,6 +252,7 @@
         position: relative;
         overflow: hidden;
         transition: all 0.3s ease;
+        page-break-inside: avoid;
       }
       .experience-item:hover,
       .education-item:hover,
@@ -329,6 +332,7 @@
         position: relative;
         overflow: hidden;
         transition: all 0.3s ease;
+        page-break-inside: avoid;
       }
       .skill-category:hover {
         transform: translateY(-5px);
@@ -385,6 +389,7 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         position: relative;
         transition: all 0.3s ease;
+        page-break-inside: avoid;
       }
       .awards-list li:hover {
         transform: translateX(10px);
@@ -421,6 +426,7 @@
         border-left: 5px solid #e53e3e;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         transition: all 0.3s ease;
+        page-break-inside: avoid;
       }
       .language-item:hover {
         transform: translateY(-5px);
@@ -449,6 +455,7 @@
         position: relative;
         overflow: hidden;
         transition: all 0.3s ease;
+        page-break-inside: avoid;
       }
       .certification-item:hover {
         transform: translateY(-5px);
@@ -658,29 +665,18 @@
           background: #2a5298 !important;
         }
         
-        /* Remove all page break controls */
-        .section,
+        /* Ensure sections are not split across pages */
+        .section {
+          page-break-inside: avoid !important;
+        }
+        
         .experience-item,
         .education-item,
         .project-item,
         .certification-item,
         .skill-category,
-        .summary,
-        .section-title,
-        .job-title,
-        .company,
-        .duration,
-        .cert-title,
-        .cert-issuer,
-        .skill-category h4,
-        .language-name,
-        .responsibilities,
-        .skill-tags,
-        .responsibilities li,
-        .skill-tag {
-          page-break-inside: auto !important;
-          page-break-after: auto !important;
-          page-break-before: auto !important;
+        .summary {
+          page-break-inside: avoid !important;
         }
         
         /* Ensure content doesn't overflow pages */
@@ -1177,7 +1173,7 @@
         document.querySelector('.name').style.cssText = 'color: white !important; background: none !important; -webkit-text-fill-color: white !important;';
         document.querySelector('.header').style.cssText = 'background: #2a5298 !important;';
         
-        // Simple PDF generation options without complex page break controls
+        // PDF generation options with page break settings
         const opt = {
           margin: 10,
           filename: fileName + '.pdf',
@@ -1188,7 +1184,8 @@
             logging: false,
             backgroundColor: '#ffffff'
           },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+          pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
         };
         
         // Generate and save PDF
