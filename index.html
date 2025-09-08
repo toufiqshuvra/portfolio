@@ -635,6 +635,8 @@
           background: white;
           padding: 0;
           margin: 0;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
         }
         
         .cv-container {
@@ -643,10 +645,18 @@
           max-width: none;
           margin: 0;
           page-break-after: avoid;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
         }
         
         .download-btn {
           display: none;
+        }
+        
+        .header {
+          background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%) !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
         }
         
         .header::before {
@@ -659,6 +669,8 @@
           color: white !important;
           background: none !important;
           text-shadow: none !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
         }
         
         /* Prevent unwanted page breaks */
@@ -689,6 +701,12 @@
         * {
           transition: none !important;
           animation: none !important;
+        }
+        
+        /* Force background colors for all elements */
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
         }
       }
       
@@ -1162,7 +1180,7 @@
         // Get the CV container element
         const element = document.querySelector(".cv-container");
         
-        // PDF generation options
+        // PDF generation options with pagebreak settings
         const opt = {
           margin: 10,
           filename: fileName + '.pdf',
@@ -1171,9 +1189,41 @@
             scale: 2,
             useCORS: true,
             logging: false,
-            backgroundColor: '#ffffff'
+            backgroundColor: '#ffffff',
+            // Ensure background colors are preserved
+            onclone: function(clonedDoc) {
+              const clonedElement = clonedDoc.querySelector('.cv-container');
+              // Force background colors for all elements
+              const allElements = clonedElement.querySelectorAll('*');
+              allElements.forEach(el => {
+                const computedStyle = window.getComputedStyle(el);
+                if (computedStyle.backgroundColor !== 'rgba(0, 0, 0, 0)' && 
+                    computedStyle.backgroundColor !== 'transparent') {
+                  el.style.setProperty('background-color', computedStyle.backgroundColor, 'important');
+                }
+                if (computedStyle.color !== 'rgba(0, 0, 0, 0)' && 
+                    computedStyle.color !== 'transparent') {
+                  el.style.setProperty('color', computedStyle.color, 'important');
+                }
+              });
+              
+              // Specifically fix the header background
+              const header = clonedDoc.querySelector('.header');
+              if (header) {
+                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%)';
+              }
+              
+              // Specifically fix the name text color
+              const name = clonedDoc.querySelector('.name');
+              if (name) {
+                name.style.color = 'white';
+                name.style.webkitTextFillColor = 'white';
+                name.style.background = 'none';
+              }
+            }
           },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+          pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
         };
         
         // Generate and save PDF
