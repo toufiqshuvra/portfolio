@@ -180,7 +180,6 @@
         margin-bottom: 45px;
         position: relative;
         page-break-inside: avoid;
-        page-break-after: avoid;
       }
       .section:last-child {
         margin-bottom: 0;
@@ -195,8 +194,6 @@
         position: relative;
         text-transform: uppercase;
         letter-spacing: 1px;
-        page-break-after: avoid;
-        page-break-inside: avoid;
       }
       .section-title::before {
         content: "";
@@ -232,7 +229,6 @@
         position: relative;
         overflow: hidden;
         page-break-inside: avoid;
-        page-break-after: avoid;
       }
       .summary::before {
         content: '"';
@@ -257,7 +253,6 @@
         overflow: hidden;
         transition: all 0.3s ease;
         page-break-inside: avoid;
-        page-break-after: avoid;
       }
       .experience-item:hover,
       .education-item:hover,
@@ -288,14 +283,12 @@
         color: #1e3c72;
         margin-bottom: 8px;
         line-height: 1.3;
-        page-break-after: avoid;
       }
       .company {
         font-weight: 600;
         color: #667eea;
         margin-bottom: 8px;
         font-size: 1.1em;
-        page-break-after: avoid;
       }
       .duration {
         font-style: italic;
@@ -306,11 +299,9 @@
         border-radius: 20px;
         display: inline-block;
         font-weight: 500;
-        page-break-after: avoid;
       }
       .responsibilities {
         list-style: none;
-        page-break-inside: avoid;
       }
       .responsibilities li {
         margin-bottom: 12px;
@@ -318,7 +309,6 @@
         position: relative;
         color: #2d3748;
         line-height: 1.7;
-        page-break-inside: avoid;
       }
       .responsibilities li::before {
         content: "▶";
@@ -332,7 +322,6 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 25px;
-        page-break-inside: avoid;
       }
       .skill-category {
         background: linear-gradient(135deg, #ffffff, #f7fafc);
@@ -344,7 +333,6 @@
         overflow: hidden;
         transition: all 0.3s ease;
         page-break-inside: avoid;
-        page-break-after: avoid;
       }
       .skill-category:hover {
         transform: translateY(-5px);
@@ -367,13 +355,11 @@
         font-size: 1.2em;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        page-break-after: avoid;
       }
       .skill-tags {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        page-break-inside: avoid;
       }
       .skill-tag {
         background: linear-gradient(135deg, #667eea, #764ba2);
@@ -386,7 +372,6 @@
         letter-spacing: 0.5px;
         box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         transition: all 0.3s ease;
-        page-break-inside: avoid;
       }
       .skill-tag:hover {
         transform: translateY(-2px);
@@ -394,7 +379,6 @@
       }
       .awards-list {
         list-style: none;
-        page-break-inside: avoid;
       }
       .awards-list li {
         background: linear-gradient(135deg, #f0fff4, #e6fffa);
@@ -406,7 +390,6 @@
         position: relative;
         transition: all 0.3s ease;
         page-break-inside: avoid;
-        page-break-after: avoid;
       }
       .awards-list li:hover {
         transform: translateX(10px);
@@ -429,13 +412,11 @@
         color: #38a169;
         font-size: 1.1em;
         margin-bottom: 5px;
-        page-break-after: avoid;
       }
       .languages-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 20px;
-        page-break-inside: avoid;
       }
       .language-item {
         background: linear-gradient(135deg, #fff5f5, #fed7d7);
@@ -446,7 +427,6 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         transition: all 0.3s ease;
         page-break-inside: avoid;
-        page-break-after: avoid;
       }
       .language-item:hover {
         transform: translateY(-5px);
@@ -458,7 +438,6 @@
         color: #1a202c;
         font-size: 1.2em;
         margin-bottom: 5px;
-        page-break-after: avoid;
       }
       .language-level {
         color: #e53e3e;
@@ -477,7 +456,6 @@
         overflow: hidden;
         transition: all 0.3s ease;
         page-break-inside: avoid;
-        page-break-after: avoid;
       }
       .certification-item:hover {
         transform: translateY(-5px);
@@ -499,14 +477,12 @@
         color: #1e3c72;
         margin-bottom: 10px;
         line-height: 1.4;
-        page-break-after: avoid;
       }
       .cert-issuer {
         font-weight: 600;
         color: #667eea;
         margin-bottom: 15px;
         font-size: 1.05em;
-        page-break-after: avoid;
       }
       .cert-link {
         color: #667eea;
@@ -519,7 +495,6 @@
         align-items: center;
         gap: 8px;
         transition: all 0.3s ease;
-        page-break-inside: avoid;
       }
       .cert-link:hover {
         background: linear-gradient(135deg, #667eea, #764ba2);
@@ -894,7 +869,7 @@
       </div>
     </div>
     
-    <div class="cv-container">
+    <div class="cv-container" id="cvContainer">
       <div class="header">
         <div class="profile-section">
           <!-- Add your professional photo here -->
@@ -945,7 +920,7 @@
         </div>
       </div>
       <div class="content">
-        <div class="section">
+        <div class="section" id="summary-section">
           <h2 class="section-title">Professional Summary</h2>
           <p class="summary">
             Software Engineer focused on frontend development and WordPress
@@ -956,7 +931,7 @@
             operations, ensuring smooth and efficient website functionality.
           </p>
         </div>
-        <div class="section">
+        <div class="section" id="experience-section">
           <h2 class="section-title">Experience</h2>
           <div class="experience-item">
             <h3 class="job-title">Frontend Engineer</h3>
@@ -1003,7 +978,7 @@
             </ul>
           </div>
         </div>
-        <div class="section">
+        <div class="section" id="education-section">
           <h2 class="section-title">Education</h2>
           <div class="education-item">
             <h3 class="job-title">BSc in Computer Science & Engineering</h3>
@@ -1033,7 +1008,7 @@
             </ul>
           </div>
         </div>
-        <div class="section">
+        <div class="section" id="projects-section">
           <h2 class="section-title">Key Projects</h2>
           <div class="project-item">
             <h3 class="job-title">Esther Group Website</h3>
@@ -1070,7 +1045,7 @@
             </p>
           </div>
         </div>
-        <div class="section">
+        <div class="section" id="skills-section">
           <h2 class="section-title">Technical Skills</h2>
           <div class="skills-grid">
             <div class="skill-category">
@@ -1131,7 +1106,7 @@
             </div>
           </div>
         </div>
-        <div class="section">
+        <div class="section" id="certifications-section">
           <h2 class="section-title">Certifications</h2>
           <div class="certification-item">
             <h3 class="cert-title">AWS Partner: Technical Accredited</h3>
@@ -1192,6 +1167,7 @@
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
       // Directory modal functions
       function showDirectoryModal() {
@@ -1218,9 +1194,6 @@
         `;
         document.body.appendChild(loadingOverlay);
         
-        // Get the CV container element
-        const element = document.querySelector(".cv-container");
-        
         // Temporarily modify styles for PDF generation
         const originalNameStyle = document.querySelector('.name').style.cssText;
         const originalHeaderStyle = document.querySelector('.header').style.cssText;
@@ -1229,48 +1202,116 @@
         document.querySelector('.name').style.cssText = 'color: white !important; background: none !important; -webkit-text-fill-color: white !important;';
         document.querySelector('.header').style.cssText = 'background: #2a5298 !important;';
         
-        // PDF generation options with optimized settings
-        const opt = {
-          margin: 10,
-          filename: fileName + '.pdf',
-          image: { type: 'jpeg', quality: 0.8 }, // Reduced quality for faster processing
-          html2canvas: { 
-            scale: 1.5, // Reduced scale for faster processing
-            useCORS: true,
-            logging: false,
-            backgroundColor: '#ffffff',
-            // Optimized canvas settings
-            letterRendering: true,
-            removeContainer: true
-          },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-          // Enhanced pagebreak configuration
-          pagebreak: { 
-            mode: ['css', 'legacy'],
-            before: '.section', // Force page break before each section
-            after: '.section'
+        // Get all sections
+        const sections = [
+          document.querySelector('.header'),
+          document.getElementById('summary-section'),
+          document.getElementById('experience-section'),
+          document.getElementById('education-section'),
+          document.getElementById('projects-section'),
+          document.getElementById('skills-section'),
+          document.getElementById('certifications-section')
+        ];
+        
+        // Create a new jsPDF instance
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF('p', 'mm', 'a4');
+        
+        // Define page dimensions
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const pageHeight = doc.internal.pageSize.getHeight();
+        const margin = 10;
+        
+        // Track current position
+        let currentY = margin;
+        let pageNumber = 1;
+        
+        // Function to add a new page
+        function addNewPage() {
+          doc.addPage();
+          pageNumber++;
+          currentY = margin;
+        }
+        
+        // Function to check if content fits on current page
+        function checkPageSpace(requiredHeight) {
+          if (currentY + requiredHeight > pageHeight - margin) {
+            addNewPage();
+            return true;
           }
+          return false;
+        }
+        
+        // Process each section
+        const processSection = (section, index) => {
+          return new Promise((resolve) => {
+            // Clone the section for processing
+            const clonedSection = section.cloneNode(true);
+            
+            // Create a temporary container
+            const tempContainer = document.createElement('div');
+            tempContainer.style.position = 'absolute';
+            tempContainer.style.left = '-9999px';
+            tempContainer.style.width = (pageWidth - 2 * margin) + 'mm';
+            tempContainer.appendChild(clonedSection);
+            document.body.appendChild(tempContainer);
+            
+            // Calculate the height of the section
+            html2canvas(tempContainer, {
+              scale: 1.5,
+              useCORS: true,
+              logging: false,
+              backgroundColor: '#ffffff'
+            }).then(canvas => {
+              // Remove the temporary container
+              document.body.removeChild(tempContainer);
+              
+              // Calculate the height of the section in mm
+              const sectionHeight = (canvas.height * (pageWidth - 2 * margin)) / canvas.width;
+              
+              // Check if we need a new page (except for the first section)
+              if (index > 0) {
+                addNewPage();
+              }
+              
+              // Add the section to the PDF
+              const imgData = canvas.toDataURL('image/jpeg', 0.8);
+              doc.addImage(imgData, 'JPEG', margin, currentY, pageWidth - 2 * margin, sectionHeight);
+              
+              // Update current position
+              currentY += sectionHeight + 10; // Add 10mm margin between sections
+              
+              resolve();
+            });
+          });
         };
         
-        // Generate and save PDF
-        html2pdf().set(opt).from(element).save()
-          .then(() => {
-            // Restore original styles
-            document.querySelector('.name').style.cssText = originalNameStyle;
-            document.querySelector('.header').style.cssText = originalHeaderStyle;
-            
-            // Remove loading overlay when done
-            document.body.removeChild(loadingOverlay);
-          })
-          .catch(error => {
-            // Restore original styles in case of error
-            document.querySelector('.name').style.cssText = originalNameStyle;
-            document.querySelector('.header').style.cssText = originalHeaderStyle;
-            
-            console.error('PDF generation failed:', error);
-            alert('Error generating PDF. Please try again.');
-            document.body.removeChild(loadingOverlay);
-          });
+        // Process all sections sequentially
+        let promiseChain = Promise.resolve();
+        sections.forEach((section, index) => {
+          promiseChain = promiseChain.then(() => processSection(section, index));
+        });
+        
+        // Save the PDF when all sections are processed
+        promiseChain.then(() => {
+          // Restore original styles
+          document.querySelector('.name').style.cssText = originalNameStyle;
+          document.querySelector('.header').style.cssText = originalHeaderStyle;
+          
+          // Save the PDF
+          doc.save(fileName + '.pdf');
+          
+          // Remove loading overlay
+          document.body.removeChild(loadingOverlay);
+        }).catch(error => {
+          // Restore original styles in case of error
+          document.querySelector('.name').style.cssText = originalNameStyle;
+          document.querySelector('.header').style.cssText = originalHeaderStyle;
+          
+          console.error('PDF generation failed:', error);
+          alert('Error generating PDF. Please try again.');
+          document.body.removeChild(loadingOverlay);
+        });
       }
       
       // Close modal when clicking outside of it
