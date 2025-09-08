@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Professional CV for Md. Toufiqul Karim - Frontend Developer and Software Engineer">
     <title>Md. Toufiqul Karim - Professional CV</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -11,13 +12,11 @@
     />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap");
-
       /* Custom styles that can't be easily replaced with Tailwind */
       body {
         font-family: "Inter", sans-serif;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       }
-
       .header {
         background: linear-gradient(
           135deg,
@@ -26,7 +25,6 @@
           #667eea 100%
         );
       }
-
       .header::before {
         content: "";
         position: absolute;
@@ -41,7 +39,6 @@
         );
         animation: float 6s ease-in-out infinite;
       }
-
       @keyframes float {
         0%,
         100% {
@@ -51,7 +48,6 @@
           transform: translateY(-20px) rotate(10deg);
         }
       }
-
       .name {
         font-family: "Poppins", sans-serif;
         background: linear-gradient(45deg, #ffffff, #f0f8ff);
@@ -59,16 +55,13 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
-
       .title {
         font-family: "Poppins", sans-serif;
       }
-
       .section-title {
         font-family: "Poppins", sans-serif;
         position: relative;
       }
-
       .section-title::before {
         content: "";
         position: absolute;
@@ -79,7 +72,6 @@
         background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
         border-radius: 2px;
       }
-
       .section-title::after {
         content: "";
         position: absolute;
@@ -91,7 +83,6 @@
         border-radius: 4px;
         box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
       }
-
       .summary::before {
         content: '"';
         position: absolute;
@@ -102,7 +93,6 @@
         opacity: 0.2;
         font-family: "Poppins", sans-serif;
       }
-
       .responsibilities li::before {
         content: "▶";
         position: absolute;
@@ -111,7 +101,6 @@
         font-size: 0.9em;
         top: 2px;
       }
-
       .awards-list li::before {
         content: "🏆";
         position: absolute;
@@ -123,7 +112,6 @@
         border-radius: 50%;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
       }
-
       .loading-spinner {
         border: 8px solid rgba(255, 255, 255, 0.3);
         border-radius: 50%;
@@ -133,7 +121,6 @@
         animation: spin 1s linear infinite;
         margin-bottom: 20px;
       }
-
       @keyframes spin {
         0% {
           transform: rotate(0deg);
@@ -142,7 +129,6 @@
           transform: rotate(360deg);
         }
       }
-
       /* Print-specific styles to fix PDF issues */
       @media print {
         body {
@@ -150,22 +136,18 @@
           padding: 0;
           margin: 0;
         }
-
         .cv-container {
           box-shadow: none;
           border-radius: 0;
           max-width: none;
           margin: 0;
         }
-
         .download-btn {
           display: none;
         }
-
         .header::before {
           animation: none;
         }
-
         /* Fix for the white name issue in PDF */
         .name {
           color: white !important;
@@ -173,17 +155,14 @@
           -webkit-text-fill-color: white !important;
           text-shadow: none !important;
         }
-
         /* Create a solid blue background for the header */
         .header {
           background: #2a5298 !important;
         }
-
         /* Ensure sections are not split across pages */
         .section {
           page-break-inside: avoid !important;
         }
-
         .experience-item,
         .education-item,
         .project-item,
@@ -192,22 +171,174 @@
         .summary {
           page-break-inside: avoid !important;
         }
-
         /* Remove animations and transitions for print */
         * {
           transition: none !important;
           animation: none !important;
         }
       }
+      
+      /* Responsive adjustments */
+      @media (max-width: 1024px) {
+        .cv-container {
+          margin: 0 1rem;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .header {
+          padding: 3rem 1.5rem !important;
+        }
+        .profile-section {
+          flex-direction: column !important;
+          text-align: center;
+          gap: 1.5rem !important;
+        }
+        .photo-placeholder {
+          width: 120px !important;
+          height: 120px !important;
+          margin: 0 auto;
+        }
+        .name {
+          font-size: 2rem !important;
+        }
+        .title {
+          font-size: 1.25rem !important;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr !important;
+          gap: 0.75rem !important;
+        }
+        .contact-item {
+          justify-content: center;
+          padding: 0.5rem 1rem !important;
+        }
+        .content {
+          padding: 2rem 1.5rem !important;
+        }
+        .section-title {
+          font-size: 1.5rem !important;
+          margin-bottom: 1.5rem !important;
+        }
+        .experience-item, .education-item, .project-item, .certification-item {
+          padding: 1.5rem !important;
+          margin-bottom: 1.5rem !important;
+        }
+        .job-title {
+          font-size: 1.25rem !important;
+        }
+        .skill-category {
+          padding: 1.5rem !important;
+        }
+        .skill-tag {
+          font-size: 0.75rem !important;
+          padding: 0.5rem 0.75rem !important;
+        }
+        .summary {
+          font-size: 1rem !important;
+          padding: 1.5rem !important;
+        }
+        .summary::before {
+          font-size: 2.5rem !important;
+          top: -5px !important;
+          left: 5px !important;
+        }
+        .responsibilities li {
+          padding-left: 1.5rem !important;
+          font-size: 0.95rem !important;
+        }
+        .cert-title {
+          font-size: 1.1rem !important;
+        }
+        .cert-link {
+          font-size: 0.85rem !important;
+          padding: 0.5rem 1rem !important;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        body {
+          padding: 0.5rem !important;
+        }
+        .cv-container {
+          margin: 0 0.5rem;
+        }
+        .header {
+          padding: 2rem 1rem !important;
+        }
+        .photo-placeholder {
+          width: 100px !important;
+          height: 100px !important;
+        }
+        .name {
+          font-size: 1.75rem !important;
+        }
+        .title {
+          font-size: 1.1rem !important;
+        }
+        .contact-item {
+          font-size: 0.85rem !important;
+          padding: 0.4rem 0.8rem !important;
+        }
+        .content {
+          padding: 1.5rem 1rem !important;
+        }
+        .section-title {
+          font-size: 1.25rem !important;
+          margin-bottom: 1rem !important;
+        }
+        .experience-item, .education-item, .project-item, .certification-item {
+          padding: 1rem !important;
+          margin-bottom: 1rem !important;
+        }
+        .job-title {
+          font-size: 1.1rem !important;
+        }
+        .company {
+          font-size: 1rem !important;
+        }
+        .duration {
+          font-size: 0.85rem !important;
+        }
+        .skill-category {
+          padding: 1rem !important;
+          margin-bottom: 1rem !important;
+        }
+        .skill-category h4 {
+          font-size: 1rem !important;
+          margin-bottom: 0.75rem !important;
+        }
+        .skill-tag {
+          font-size: 0.7rem !important;
+          padding: 0.4rem 0.6rem !important;
+        }
+        .summary {
+          font-size: 0.95rem !important;
+          padding: 1rem !important;
+        }
+        .responsibilities li {
+          padding-left: 1.25rem !important;
+          font-size: 0.9rem !important;
+        }
+        .cert-title {
+          font-size: 1rem !important;
+        }
+        .cert-issuer {
+          font-size: 0.9rem !important;
+        }
+        .cert-link {
+          font-size: 0.8rem !important;
+          padding: 0.4rem 0.8rem !important;
+        }
+      }
     </style>
   </head>
   <body class="p-5 min-h-screen overflow-x-hidden">
     <button
-      class="download-btn fixed top-3 right-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-3 px-6 rounded-full cursor-pointer font-bold font-poppins shadow-lg hover:shadow-xl transition-all duration-300 z-[1000] uppercase tracking-wider hover:-translate-y-1"
+      class="download-btn fixed top-3 right-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-3 px-6 rounded-full cursor-pointer font-bold font-poppins shadow-lg hover:shadow-xl transition-all duration-300 z-[1000] uppercase tracking-wider hover:-translate-y-1 text-sm sm:text-base"
     >
       📄 Download CV
     </button>
-
     <!-- Directory Selection Modal -->
     <div
       class="directory-modal fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 hidden justify-center items-center z-[10000]"
@@ -242,14 +373,12 @@
         </div>
       </div>
     </div>
-
     <div
       class="cv-container max-w-[220mm] mx-auto bg-white shadow-[0_25px_60px_rgba(0,0,0,0.15)] rounded-2xl overflow-hidden relative"
     >
       <div
         class="cv-container::before absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 z-10"
       ></div>
-
       <div
         class="header text-white p-12 flex items-center justify-between relative overflow-hidden"
       >
@@ -332,7 +461,6 @@
           </div>
         </div>
       </div>
-
       <div class="content p-12 bg-gradient-to-b from-white to-slate-50">
         <div class="section mb-11 relative break-inside-avoid">
           <h2
@@ -351,7 +479,6 @@
             operations, ensuring smooth and efficient website functionality.
           </p>
         </div>
-
         <div class="section mb-11 relative break-inside-avoid">
           <h2
             class="section-title text-2xl font-bold text-slate-800 mb-6 py-4 uppercase tracking-wider"
@@ -418,7 +545,6 @@
             </ul>
           </div>
         </div>
-
         <div class="section mb-11 relative break-inside-avoid">
           <h2
             class="section-title text-2xl font-bold text-slate-800 mb-6 py-4 uppercase tracking-wider"
@@ -451,7 +577,6 @@
               </li>
             </ul>
           </div>
-
           <div
             class="education-item mb-8 p-8 bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative overflow-hidden transition-all duration-300 break-inside-avoid hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
           >
@@ -480,7 +605,6 @@
             </ul>
           </div>
         </div>
-
         <div class="section mb-11 relative break-inside-avoid">
           <h2
             class="section-title text-2xl font-bold text-slate-800 mb-6 py-4 uppercase tracking-wider"
@@ -505,7 +629,6 @@
               platform.
             </p>
           </div>
-
           <div
             class="project-item mb-8 p-8 bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative overflow-hidden transition-all duration-300 break-inside-avoid hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
           >
@@ -522,7 +645,6 @@
               a global alumni reunion website.
             </p>
           </div>
-
           <div
             class="project-item mb-8 p-8 bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative overflow-hidden transition-all duration-300 break-inside-avoid hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
           >
@@ -540,7 +662,6 @@
               experience.
             </p>
           </div>
-
           <div
             class="project-item mb-8 p-8 bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative overflow-hidden transition-all duration-300 break-inside-avoid hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
           >
@@ -559,7 +680,6 @@
             </p>
           </div>
         </div>
-
         <div class="section mb-11 relative break-inside-avoid">
           <h2
             class="section-title text-2xl font-bold text-slate-800 mb-6 py-4 uppercase tracking-wider"
@@ -607,7 +727,6 @@
                 >
               </div>
             </div>
-
             <div
               class="skill-category bg-gradient-to-br from-white to-slate-50 p-8 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative overflow-hidden transition-all duration-300 break-inside-avoid hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
             >
@@ -642,7 +761,6 @@
                 >
               </div>
             </div>
-
             <div
               class="skill-category bg-gradient-to-br from-white to-slate-50 p-8 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative overflow-hidden transition-all duration-300 break-inside-avoid hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
             >
@@ -673,7 +791,6 @@
                 >
               </div>
             </div>
-
             <div
               class="skill-category bg-gradient-to-br from-white to-slate-50 p-8 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative overflow-hidden transition-all duration-300 break-inside-avoid hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
             >
@@ -704,7 +821,6 @@
                 >
               </div>
             </div>
-
             <div
               class="skill-category bg-gradient-to-br from-white to-slate-50 p-8 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative overflow-hidden transition-all duration-300 break-inside-avoid hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
             >
@@ -731,7 +847,6 @@
                 >
               </div>
             </div>
-
             <div
               class="skill-category bg-gradient-to-br from-white to-slate-50 p-8 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative overflow-hidden transition-all duration-300 break-inside-avoid hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
             >
@@ -760,7 +875,6 @@
             </div>
           </div>
         </div>
-
         <div class="section mb-11 relative break-inside-avoid">
           <h2
             class="section-title text-2xl font-bold text-slate-800 mb-6 py-4 uppercase tracking-wider"
@@ -789,7 +903,6 @@
               🔗 Verify on Credly
             </a>
           </div>
-
           <div
             class="certification-item mb-6 p-8 bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative overflow-hidden transition-all duration-300 break-inside-avoid hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
           >
@@ -813,7 +926,6 @@
               🔗 Verify on Oracle CertView
             </a>
           </div>
-
           <div
             class="certification-item mb-6 p-8 bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative overflow-hidden transition-all duration-300 break-inside-avoid hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
           >
@@ -837,7 +949,6 @@
               🔗 Verify on Oracle CertView
             </a>
           </div>
-
           <div
             class="certification-item mb-6 p-8 bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative overflow-hidden transition-all duration-300 break-inside-avoid hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
           >
@@ -864,7 +975,6 @@
         </div>
       </div>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
       // Directory modal functions
@@ -872,21 +982,17 @@
         document.getElementById("directoryModal").classList.add("flex");
         document.getElementById("directoryModal").classList.remove("hidden");
       }
-
       function closeDirectoryModal() {
         document.getElementById("directoryModal").classList.add("hidden");
         document.getElementById("directoryModal").classList.remove("flex");
       }
-
       function downloadAsPDF() {
         // Get the filename from input
         const fileName =
           document.getElementById("fileNameInput").value ||
           "Md_Toufiqul_Karim_Professional_CV";
-
         // Close the modal
         closeDirectoryModal();
-
         // Create loading overlay
         const loadingOverlay = document.createElement("div");
         loadingOverlay.className =
@@ -896,21 +1002,17 @@
           <p>Generating PDF, please wait...</p>
         `;
         document.body.appendChild(loadingOverlay);
-
         // Get the CV container element
         const element = document.querySelector(".cv-container");
-
         // Temporarily modify styles for PDF generation
         const originalNameStyle = document.querySelector(".name").style.cssText;
         const originalHeaderStyle =
           document.querySelector(".header").style.cssText;
-
         // Apply fixes for PDF generation
         document.querySelector(".name").style.cssText =
           "color: white !important; background: none !important; -webkit-text-fill-color: white !important;";
         document.querySelector(".header").style.cssText =
           "background: #2a5298 !important;";
-
         // PDF generation options with page break settings
         const opt = {
           margin: 10,
@@ -925,7 +1027,6 @@
           jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
           pagebreak: { mode: ["avoid-all", "css", "legacy"] },
         };
-
         // Generate and save PDF
         html2pdf()
           .set(opt)
@@ -936,7 +1037,6 @@
             document.querySelector(".name").style.cssText = originalNameStyle;
             document.querySelector(".header").style.cssText =
               originalHeaderStyle;
-
             // Remove loading overlay when done
             document.body.removeChild(loadingOverlay);
           })
@@ -945,13 +1045,33 @@
             document.querySelector(".name").style.cssText = originalNameStyle;
             document.querySelector(".header").style.cssText =
               originalHeaderStyle;
-
             console.error("PDF generation failed:", error);
             alert("Error generating PDF. Please try again.");
             document.body.removeChild(loadingOverlay);
           });
       }
-
+      
+      // Event listeners
+      document.addEventListener("DOMContentLoaded", function() {
+        // Add event listener for download button
+        const downloadBtn = document.querySelector(".download-btn");
+        if (downloadBtn) {
+          downloadBtn.addEventListener("click", showDirectoryModal);
+        }
+        
+        // Add event listeners for modal buttons
+        const saveBtn = document.querySelector(".save-btn");
+        const cancelBtn = document.querySelector(".cancel-btn");
+        
+        if (saveBtn) {
+          saveBtn.addEventListener("click", downloadAsPDF);
+        }
+        
+        if (cancelBtn) {
+          cancelBtn.addEventListener("click", closeDirectoryModal);
+        }
+      });
+      
       // Close modal when clicking outside of it
       window.onclick = function (event) {
         const modal = document.getElementById("directoryModal");
@@ -959,6 +1079,9 @@
           closeDirectoryModal();
         }
       };
+      
+      // Add touch support for mobile devices
+      document.addEventListener('touchstart', function(){}, true);
     </script>
   </body>
 </html>
