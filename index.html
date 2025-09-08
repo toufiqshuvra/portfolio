@@ -134,13 +134,6 @@
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         line-height: 1.2;
       }
-      /* Fix for PDF - ensure name is visible in print */
-      @media print {
-        .name {
-          -webkit-text-fill-color: white !important;
-          color: white !important;
-        }
-      }
       .title {
         font-family: "Poppins", sans-serif;
         font-size: 1.4em;
@@ -186,6 +179,7 @@
       .section {
         margin-bottom: 45px;
         position: relative;
+        page-break-inside: avoid;
       }
       .section:last-child {
         margin-bottom: 0;
@@ -234,6 +228,7 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         position: relative;
         overflow: hidden;
+        page-break-inside: avoid;
       }
       .summary::before {
         content: '"';
@@ -257,6 +252,7 @@
         position: relative;
         overflow: hidden;
         transition: all 0.3s ease;
+        page-break-inside: avoid;
       }
       .experience-item:hover,
       .education-item:hover,
@@ -336,6 +332,7 @@
         position: relative;
         overflow: hidden;
         transition: all 0.3s ease;
+        page-break-inside: avoid;
       }
       .skill-category:hover {
         transform: translateY(-5px);
@@ -392,6 +389,7 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         position: relative;
         transition: all 0.3s ease;
+        page-break-inside: avoid;
       }
       .awards-list li:hover {
         transform: translateX(10px);
@@ -428,6 +426,7 @@
         border-left: 5px solid #e53e3e;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         transition: all 0.3s ease;
+        page-break-inside: avoid;
       }
       .language-item:hover {
         transform: translateY(-5px);
@@ -456,6 +455,7 @@
         position: relative;
         overflow: hidden;
         transition: all 0.3s ease;
+        page-break-inside: avoid;
       }
       .certification-item:hover {
         transform: translateY(-5px);
@@ -628,23 +628,70 @@
       .cancel-btn:hover {
         background: #cbd5e0;
       }
+      
+      /* Print-specific styles to fix PDF issues */
       @media print {
         body {
           background: white;
           padding: 0;
+          margin: 0;
         }
+        
         .cv-container {
           box-shadow: none;
           border-radius: 0;
           max-width: none;
+          margin: 0;
+          page-break-after: avoid;
         }
+        
         .download-btn {
           display: none;
         }
+        
         .header::before {
           animation: none;
         }
+        
+        /* Fix for the white name issue in PDF */
+        .name {
+          -webkit-text-fill-color: white !important;
+          color: white !important;
+          background: none !important;
+          text-shadow: none !important;
+        }
+        
+        /* Prevent unwanted page breaks */
+        .section {
+          page-break-inside: avoid;
+          margin-bottom: 30px;
+        }
+        
+        .experience-item,
+        .education-item,
+        .project-item,
+        .certification-item,
+        .skill-category,
+        .summary {
+          page-break-inside: avoid;
+        }
+        
+        /* Ensure content doesn't overflow pages */
+        .content {
+          padding: 30px;
+        }
+        
+        .header {
+          padding: 30px;
+        }
+        
+        /* Remove animations and transitions for print */
+        * {
+          transition: none !important;
+          animation: none !important;
+        }
       }
+      
       @media (max-width: 768px) {
         body {
           padding: 10px;
